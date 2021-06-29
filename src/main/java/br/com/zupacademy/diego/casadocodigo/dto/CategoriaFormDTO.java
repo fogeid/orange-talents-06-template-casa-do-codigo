@@ -1,12 +1,12 @@
 package br.com.zupacademy.diego.casadocodigo.dto;
 
 import br.com.zupacademy.diego.casadocodigo.models.Categoria;
-import br.com.zupacademy.diego.casadocodigo.validators.NomeUnico;
+import br.com.zupacademy.diego.casadocodigo.validators.ValorUnico;
 
 import javax.validation.constraints.NotBlank;
 
 public class CategoriaFormDTO {
-    @NomeUnico
+    @ValorUnico(obj = Categoria.class, fieldName = "nome")
     @NotBlank
     private String nome;
 

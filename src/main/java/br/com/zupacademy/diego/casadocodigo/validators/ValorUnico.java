@@ -7,12 +7,11 @@ import java.lang.annotation.*;
 @Documented
 @Target({ ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = EmailUnicoValidator.class)
-public @interface EmailUnico {
-    String message() default "E-mail já cadastrado, tente outro e-mail.";
+@Constraint(validatedBy = ValorUnicoValidator.class)
+public @interface ValorUnico {
+    String message() default "Valor duplicado, tente outro.";
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
-    String value() default "";
+    String fieldName();
+    Class<?> obj();
 }
-
-

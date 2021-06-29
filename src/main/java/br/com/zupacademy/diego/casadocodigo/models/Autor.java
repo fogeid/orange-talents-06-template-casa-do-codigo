@@ -1,6 +1,5 @@
 package br.com.zupacademy.diego.casadocodigo.models;
 
-import br.com.zupacademy.diego.casadocodigo.validators.EmailUnico;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 

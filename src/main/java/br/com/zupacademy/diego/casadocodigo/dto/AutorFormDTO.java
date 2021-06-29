@@ -1,7 +1,7 @@
 package br.com.zupacademy.diego.casadocodigo.dto;
 
 import br.com.zupacademy.diego.casadocodigo.models.Autor;
-import br.com.zupacademy.diego.casadocodigo.validators.EmailUnico;
+import br.com.zupacademy.diego.casadocodigo.validators.ValorUnico;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
@@ -15,7 +15,7 @@ public class AutorFormDTO {
     private String nome;
 
     @NotBlank
-    @EmailUnico
+    @ValorUnico(obj = Autor.class, fieldName = "email")
     @Email(message = "E-mail inválido.")
     private String email;
 
