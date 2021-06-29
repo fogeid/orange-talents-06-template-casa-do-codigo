@@ -1,6 +1,7 @@
 package br.com.zupacademy.diego.casadocodigo.dto;
 
 import br.com.zupacademy.diego.casadocodigo.models.Autor;
+import br.com.zupacademy.diego.casadocodigo.validators.EmailUnico;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
@@ -10,11 +11,11 @@ import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 public class AutorFormDTO {
-
     @NotBlank
     private String nome;
 
     @NotBlank
+    @EmailUnico
     @Email(message = "E-mail inválido.")
     private String email;
 
