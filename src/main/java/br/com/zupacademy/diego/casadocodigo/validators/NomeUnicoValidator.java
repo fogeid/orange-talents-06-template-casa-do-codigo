@@ -1,26 +1,26 @@
 package br.com.zupacademy.diego.casadocodigo.validators;
 
-import br.com.zupacademy.diego.casadocodigo.models.Autor;
-import br.com.zupacademy.diego.casadocodigo.repositories.AutorRepository;
+import br.com.zupacademy.diego.casadocodigo.models.Categoria;
+import br.com.zupacademy.diego.casadocodigo.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.List;
 
-public class EmailUnicoValidator implements ConstraintValidator<EmailUnico, Object> {
+public class NomeUnicoValidator implements ConstraintValidator<NomeUnico, Object> {
     @Autowired
-    AutorRepository autorRepository;
+    CategoriaRepository categoriaRepository;
 
     @Override
-    public void initialize(EmailUnico constraintAnnotation) {
+    public void initialize(NomeUnico constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation);
     }
 
     @Override
     public boolean isValid(Object obj, ConstraintValidatorContext context) {
-        String email = (String) obj;
-        List<Autor> list = this.autorRepository.findByEmail(email);
+        String nome = (String) obj;
+        List<Categoria> list = this.categoriaRepository.findByNome(nome);
         return list.isEmpty();
     }
 }
