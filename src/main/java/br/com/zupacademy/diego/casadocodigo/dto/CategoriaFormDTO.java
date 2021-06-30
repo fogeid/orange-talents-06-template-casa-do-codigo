@@ -6,7 +6,7 @@ import br.com.zupacademy.diego.casadocodigo.validators.ValorUnico;
 import javax.validation.constraints.NotBlank;
 
 public class CategoriaFormDTO {
-    @ValorUnico(obj = Categoria.class, fieldName = "nome")
+    @ValorUnico(obj = Categoria.class, fieldName = "nome", message = "Categoria já cadastrada, insira uma outra categoria.")
     @NotBlank
     private String nome;
 

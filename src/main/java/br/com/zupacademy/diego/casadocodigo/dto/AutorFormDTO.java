@@ -15,7 +15,7 @@ public class AutorFormDTO {
     private String nome;
 
     @NotBlank
-    @ValorUnico(obj = Autor.class, fieldName = "email")
+    @ValorUnico(obj = Autor.class, fieldName = "email", message = "E-mail já cadastrado, insira um outro e-mail.")
     @Email(message = "E-mail inválido.")
     private String email;
 

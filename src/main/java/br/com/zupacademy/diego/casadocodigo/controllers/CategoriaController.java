@@ -21,6 +21,6 @@ public class CategoriaController {
     public ResponseEntity<Categoria> insert(@RequestBody @Valid CategoriaFormDTO dto) {
         Categoria categoria = dto.converter();
         categoriaRepository.save(categoria);
-        return ResponseEntity.ok().body(categoria);
+        return ResponseEntity.ok(categoria);
     }
 }
