@@ -1,6 +1,7 @@
 package br.com.zupacademy.diego.casadocodigo.controllers;
 
 import br.com.zupacademy.diego.casadocodigo.dto.LivroDTO;
+import br.com.zupacademy.diego.casadocodigo.dto.LivroDetalhesDTO;
 import br.com.zupacademy.diego.casadocodigo.dto.LivroFormDTO;
 import br.com.zupacademy.diego.casadocodigo.models.Livro;
 import br.com.zupacademy.diego.casadocodigo.repositories.AutorRepository;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/livros")
@@ -41,4 +43,14 @@ public class LivroController {
         return LivroDTO.converter(list);
     }
 
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity<LivroDetalhesDTO> detalhesFindById(@PathVariable Long id) {
+        Optional<Livro> livro = livroRepository.findById(id);
+        if (livro.isPresent()) {
+            return ResponseEntity.ok(new LivroDetalhesDTO(livro.get()));
+        }
+
+        return ResponseEntity.notFound().build();
+    }
 }

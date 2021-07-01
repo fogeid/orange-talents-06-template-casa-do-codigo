@@ -23,9 +23,6 @@ public class AutorFormDTO {
     @Length(max = 400)
     private String descricao;
 
-    @CreationTimestamp
-    private LocalDateTime dataCriacao;
-
     public AutorFormDTO() {
     }
 

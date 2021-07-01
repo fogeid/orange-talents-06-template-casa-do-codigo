@@ -21,16 +21,8 @@ public class LivroDTO {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getTitulo() {
         return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
     }
 
     public static List<LivroDTO> converter(List<Livro> list) {
