@@ -16,3 +16,9 @@ INSERT INTO tb_livro (titulo, resumo, sumario, preco, numero_paginas, isbn, data
 VALUES ('Spring Boot for dummies', 'texto resumo', 'texto sumario', 20.0, 200, 'f4g21h42u', '2021-12-25', 1, 1);
 INSERT INTO tb_livro (titulo, resumo, sumario, preco, numero_paginas, isbn, data_publicacao, categoria_id, autor_id)
 VALUES ('Python for dummies', 'texto resumo', 'texto sumario', 20.0, 200, 'f564ads6a', '2021-12-25', 2, 2);
+
+INSERT INTO tb_pais (nome)
+VALUES ('Brasil');
+
+INSERT INTO tb_estado (nome, pais_id)
+VALUES ('Minas Gerais', 1);
