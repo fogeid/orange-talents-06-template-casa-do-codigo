@@ -1,8 +1,8 @@
 package br.com.zupacademy.diego.casadocodigo.controllers;
 
-import br.com.zupacademy.diego.casadocodigo.dto.AutorFormDTO;
-import br.com.zupacademy.diego.casadocodigo.models.Autor;
-import br.com.zupacademy.diego.casadocodigo.repositories.AutorRepository;
+import br.com.zupacademy.diego.casadocodigo.dto.PaisFormDTO;
+import br.com.zupacademy.diego.casadocodigo.models.Pais;
+import br.com.zupacademy.diego.casadocodigo.repositories.PaisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,16 +14,16 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/autores")
-public class AutorController {
+@RequestMapping("/pais")
+public class PaisController {
     @Autowired
-    private AutorRepository autorRepository;
+    private PaisRepository paisRepository;
 
     @PostMapping
     @Transactional
-    public ResponseEntity<Autor> inserir(@RequestBody @Valid AutorFormDTO dto) {
-        Autor autor = dto.converter();
-        autorRepository.save(autor);
-        return ResponseEntity.ok(autor);
+    public ResponseEntity<Pais> inserir(@RequestBody @Valid PaisFormDTO dto) {
+        Pais pais = dto.converter();
+        paisRepository.save(pais);
+        return ResponseEntity.ok(pais);
     }
 }

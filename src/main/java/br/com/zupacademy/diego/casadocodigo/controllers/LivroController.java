@@ -30,7 +30,7 @@ public class LivroController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<Livro> insert(@RequestBody @Valid LivroFormDTO dto) {
+    public ResponseEntity<Livro> inserir(@RequestBody @Valid LivroFormDTO dto) {
         Livro livro = dto.converter(categoriaRepository, autorRepository);
         livroRepository.save(livro);
         return ResponseEntity.ok(livro);

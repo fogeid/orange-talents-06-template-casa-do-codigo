@@ -18,7 +18,7 @@ public class CategoriaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<Categoria> insert(@RequestBody @Valid CategoriaFormDTO dto) {
+    public ResponseEntity<Categoria> inserir(@RequestBody @Valid CategoriaFormDTO dto) {
         Categoria categoria = dto.converter();
         categoriaRepository.save(categoria);
         return ResponseEntity.ok(categoria);
